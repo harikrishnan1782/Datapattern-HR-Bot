@@ -1,0 +1,204 @@
+/* ============================================================
+   assets/styles.css
+   Unified DataPattern HR Automation Agent
+   JetBrains-inspired Teal / Forest Design System
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800&display=swap');
+
+/* ── Root CSS Variables ────────────────────────────────── */
+:root {
+    --bg:        #0b1a17;
+    --surface:   #0e211d;
+    --card:      #112820;
+    --card2:     #0d1f1a;
+    --border:    #1e3d33;
+    --border2:   #2a5244;
+    --accent:    #4acfb6;
+    --accent-dk: #03616e;
+    --forest:    #074236;
+    --teal-soft: rgba(74, 207, 182, 0.08);
+    --text:      #d4f0ea;
+    --text2:     #8cb8b0;
+    --muted:     #4d7a70;
+    --success:   #4acfb6;
+    --error:     #ff6b6b;
+    --warn:      #ffd166;
+    --radius:    10px;
+    --radius-lg: 16px;
+}
+
+/* ── Global ─────────────────────────────────────────────── */
+html, body,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.main .block-container {
+    background: var(--bg) !important;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+}
+
+/* Typography Overrides */
+h1, h2, h3 {
+    font-family: 'Outfit', 'Inter', sans-serif !important;
+    color: var(--accent) !important;
+}
+
+/* ── Tabs ────────────────────────────────────────────────── */
+[data-testid="stTabs"] [role="tablist"] {
+    background: var(--card) !important;
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding-left: 10px;
+}
+[data-testid="stTabs"] button[role="tab"] {
+    color: var(--text2) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    padding: 0.8rem 1.6rem !important;
+    border-radius: var(--radius) var(--radius) 0 0 !important;
+    border: none !important;
+    transition: color 0.2s, background 0.2s !important;
+}
+[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
+    color: var(--accent) !important;
+    background: var(--forest) !important;
+    border-bottom: 2px solid var(--accent) !important;
+}
+[data-testid="stTabs"] button[role="tab"]:hover {
+    color: var(--accent) !important;
+    background: var(--teal-soft) !important;
+}
+[data-testid="stTabsContent"] {
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-top: none !important;
+    border-radius: 0 0 var(--radius) var(--radius) !important;
+    padding: 2rem !important;
+}
+
+/* ── Inputs & Data Editor ────────────────────────────────── */
+input, textarea,
+[data-baseweb="input"] input,
+[data-baseweb="textarea"] textarea,
+[data-testid="stDateInput"] input {
+    background: var(--card2) !important;
+    border: 1px solid var(--border2) !important;
+    color: var(--text) !important;
+    border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9rem !important;
+    caret-color: var(--accent) !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+input:focus, textarea:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(74, 207, 182, 0.15) !important;
+}
+
+/* Selectbox */
+[data-baseweb="select"] > div {
+    background: var(--card2) !important;
+    border: 1px solid var(--border2) !important;
+    color: var(--text) !important;
+    border-radius: 8px !important;
+}
+[data-baseweb="select"] svg { fill: var(--accent) !important; }
+
+/* Labels */
+label,
+.stTextInput > label,
+.stSelectbox > label,
+.stDateInput > label,
+.stTextArea > label {
+    color: var(--muted) !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Data Editor (Reimbursement Grid) */
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--border2) !important;
+    border-radius: var(--radius) !important;
+    overflow: hidden;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button {
+    background: linear-gradient(135deg, var(--accent-dk), var(--accent)) !important;
+    color: #051410 !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.7rem 1.6rem !important;
+    letter-spacing: 0.04em;
+    transition: transform 0.15s, box-shadow 0.2s !important;
+}
+.stButton > button[kind="primary"]:hover,
+.stFormSubmitButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 28px rgba(74, 207, 182, 0.35) !important;
+}
+
+.stButton > button:not([kind="primary"]):not(.stFormSubmitButton > button) {
+    background: transparent !important;
+    border: 1px solid var(--border2) !important;
+    color: var(--text2) !important;
+    border-radius: 8px !important;
+    transition: border-color 0.15s, color 0.15s, background 0.15s !important;
+}
+.stButton > button:not([kind="primary"]):hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    background: var(--teal-soft) !important;
+}
+
+.stDownloadButton > button {
+    background: linear-gradient(135deg, var(--forest), var(--accent-dk)) !important;
+    color: var(--accent) !important;
+    border: 1px solid var(--border2) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+/* ── File Uploader ───────────────────────────────────────── */
+[data-testid="stFileUploadDropzone"] {
+    background: var(--card2) !important;
+    border: 1px dashed var(--border2) !important;
+    border-radius: var(--radius) !important;
+    padding: 2rem !important;
+}
+[data-testid="stFileUploadDropzone"]:hover {
+    border-color: var(--accent) !important;
+    background: rgba(74, 207, 182, 0.04) !important;
+}
+[data-testid="stFileUploadDropzone"] * {
+    color: var(--text) !important;
+}
+[data-testid="stUploadedFile"] {
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+}
+
+/* ── Alert Boxes & Status ────────────────────────────────── */
+[data-testid="stAlert"] { 
+    border-radius: 8px !important; 
+    font-size: 0.9rem !important; 
+}
+[data-testid="stStatusWidget"] {
+    background: var(--card2) !important;
+    border: 1px solid var(--border2) !important;
+    border-radius: var(--radius) !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dk); }
