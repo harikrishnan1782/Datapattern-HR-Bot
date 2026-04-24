@@ -376,6 +376,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Authors
 
 - **Hari Krishnan** (@harikrishnan1782) - Creator and Maintainer
+- **Anand kumar** - Creater and Maintainer
 
 ## Acknowledgments
 
